@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import type { CardData, ColumnId, Priority } from '../types';
+import { Dropdown } from './Dropdown';
 import './CardModal.css';
 
 interface CardModalProps {
@@ -75,17 +76,12 @@ export function CardModal({ card, defaultColumnId, onSave, onDelete, onClose }: 
             />
           </label>
           <label className="modal-field">
-            <span>Priority</span>
-            <select
+            <span className="modal-field-label-drop">Priority</span>
+            <Dropdown
               value={form.priority}
-              onChange={(e) => setForm({ ...form, priority: e.target.value as Priority })}
-            >
-              {PRIORITIES.map((p) => (
-                <option key={p} value={p}>
-                  {p}
-                </option>
-              ))}
-            </select>
+              options={PRIORITIES.map((p) => ({ value: p, label: p }))}
+              onChange={(v) => setForm({ ...form, priority: v as Priority })}
+            />
           </label>
           <label className="modal-field">
             <span>Due Date</span>

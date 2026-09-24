@@ -34,6 +34,13 @@
   color: var(--fb-text-muted);
 }
 
+.modal-field-label-drop {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
 .modal-field input,
 .modal-field select {
   font: inherit;
