@@ -1,0 +1,62 @@
+:root {
+  --fb-bg: #f4f5f7;
+  --fb-text: #171923;
+  --fb-text-muted: #6b7280;
+  --fb-border: #e2e4e9;
+  --fb-column-bg: #ebedf1;
+  --fb-column-bg-over: #e0e4ff;
+  --fb-card-bg: #ffffff;
+  --fb-count-bg: #e2e4e9;
+  --fb-input-bg: #ffffff;
+  --fb-accent: #4f46e5;
+
+  --fb-priority-high: #dc2626;
+  --fb-priority-high-bg: rgba(220, 38, 38, 0.1);
+  --fb-priority-medium: #d97706;
+  --fb-priority-medium-bg: rgba(217, 119, 6, 0.1);
+  --fb-priority-low: #16a34a;
+  --fb-priority-low-bg: rgba(22, 163, 74, 0.1);
+
+  font: 14px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light dark;
+  color: var(--fb-text);
+  background: var(--fb-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fb-bg: #101114;
+    --fb-text: #f3f4f6;
+    --fb-text-muted: #9ca3af;
+    --fb-border: #2c2e36;
+    --fb-column-bg: #191a1f;
+    --fb-column-bg-over: #262a45;
+    --fb-card-bg: #1e2027;
+    --fb-count-bg: #2c2e36;
+    --fb-input-bg: #1e2027;
+    --fb-accent: #818cf8;
+
+    --fb-priority-high: #f87171;
+    --fb-priority-high-bg: rgba(248, 113, 113, 0.15);
+    --fb-priority-medium: #fbbf24;
+    --fb-priority-medium-bg: rgba(251, 191, 36, 0.15);
+    --fb-priority-low: #4ade80;
+    --fb-priority-low-bg: rgba(74, 222, 128, 0.15);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}

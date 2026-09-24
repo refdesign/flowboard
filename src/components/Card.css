@@ -1,0 +1,93 @@
+.card {
+  background: var(--fb-card-bg);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  border-left: 3px solid var(--fb-priority-medium);
+  cursor: grab;
+  transition: box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.card.dragging {
+  opacity: 0.4;
+}
+
+.card.priority-high {
+  border-left-color: var(--fb-priority-high);
+}
+
+.card.priority-medium {
+  border-left-color: var(--fb-priority-medium);
+}
+
+.card.priority-low {
+  border-left-color: var(--fb-priority-low);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.priority-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.priority-badge-high {
+  color: var(--fb-priority-high);
+  background: var(--fb-priority-high-bg);
+}
+
+.priority-badge-medium {
+  color: var(--fb-priority-medium);
+  background: var(--fb-priority-medium-bg);
+}
+
+.priority-badge-low {
+  color: var(--fb-priority-low);
+  background: var(--fb-priority-low-bg);
+}
+
+.card-delete {
+  border: none;
+  background: transparent;
+  color: var(--fb-text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.card-delete:hover {
+  color: var(--fb-priority-high);
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fb-text);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--fb-text-muted);
+}
+
+.card-assignee {
+  font-weight: 600;
+}

@@ -1,0 +1,90 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: var(--fb-card-bg);
+  border-radius: 10px;
+  padding: 24px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fb-text);
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fb-text-muted);
+}
+
+.modal-field input,
+.modal-field select {
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--fb-border);
+  background: var(--fb-input-bg);
+  color: var(--fb-text);
+}
+
+.modal-error {
+  color: var(--fb-priority-high);
+  font-size: 12px;
+  margin: -6px 0 12px;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.modal-actions-right {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.modal-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.modal-btn-primary {
+  background: var(--fb-accent);
+  color: #fff;
+}
+
+.modal-btn-secondary {
+  background: transparent;
+  border-color: var(--fb-border);
+  color: var(--fb-text);
+}
+
+.modal-btn-danger {
+  background: transparent;
+  color: var(--fb-priority-high);
+}

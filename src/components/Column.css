@@ -1,0 +1,64 @@
+.column {
+  background: var(--fb-column-bg);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  border: 1px solid var(--fb-border);
+  transition: background-color 0.15s ease;
+}
+
+.column-over {
+  background: var(--fb-column-bg-over);
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 4px 12px;
+}
+
+.column-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fb-text);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.column-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fb-text-muted);
+  background: var(--fb-count-bg);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.column-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 40px;
+  flex: 1;
+}
+
+.column-add {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px dashed var(--fb-border);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--fb-text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.column-add:hover {
+  background: var(--fb-count-bg);
+  color: var(--fb-text);
+}
