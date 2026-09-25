@@ -9,7 +9,7 @@ import { CardModal } from './CardModal';
 import './Board.css';
 
 export function Board() {
-  const { cards, addCard, updateCard, deleteCard, moveCard } = useBoardState();
+  const { cards, loading, error, addCard, updateCard, deleteCard, moveCard } = useBoardState();
   const [modalState, setModalState] = useState<{
     open: boolean;
     card: CardData | null;
@@ -48,19 +48,24 @@ export function Board() {
         <header className="board-header">
           <h1>FlowBoard</h1>
         </header>
-        <div className="board-columns">
-          {COLUMNS.map((column) => (
-            <Column
-              key={column.id}
-              column={column}
-              cards={cards.filter((c) => c.columnId === column.id)}
-              onMoveCard={moveCard}
-              onEditCard={openEditModal}
-              onDeleteCard={deleteCard}
-              onAddCard={openAddModal}
-            />
-          ))}
-        </div>
+        {error && <p className="board-error">Couldn't sync with the server: {error}</p>}
+        {loading ? (
+          <p className="board-loading">Loading board…</p>
+        ) : (
+          <div className="board-columns">
+            {COLUMNS.map((column) => (
+              <Column
+                key={column.id}
+                column={column}
+                cards={cards.filter((c) => c.columnId === column.id)}
+                onMoveCard={moveCard}
+                onEditCard={openEditModal}
+                onDeleteCard={deleteCard}
+                onAddCard={openAddModal}
+              />
+            ))}
+          </div>
+        )}
       </div>
       {modalState.open && (
         <CardModal

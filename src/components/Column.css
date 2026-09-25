@@ -46,6 +46,31 @@
   flex: 1;
 }
 
+.column-empty {
+  flex: 1;
+  min-height: 120px;
+  background: var(--fb-card-bg);
+  border: 2px dashed var(--fb-border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 34px 16px;
+  text-align: center;
+}
+
+.column-empty-icon {
+  color: var(--fb-text-muted);
+}
+
+.column-empty-text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--fb-text-muted);
+}
+
 .column-add {
   margin-top: 10px;
   background: transparent;

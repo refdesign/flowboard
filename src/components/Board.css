@@ -13,6 +13,20 @@
   color: var(--fb-text);
 }
 
+.board-loading {
+  color: var(--fb-text-muted);
+  font-size: 14px;
+}
+
+.board-error {
+  background: var(--fb-priority-high-bg);
+  color: var(--fb-priority-high);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+
 .board-columns {
   display: grid;
   grid-template-columns: repeat(4, minmax(260px, 1fr));
