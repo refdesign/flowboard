@@ -29,10 +29,16 @@
 
 .board-columns {
   display: grid;
-  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  grid-template-columns: repeat(5, minmax(240px, 1fr));
   gap: 16px;
   flex: 1;
   align-items: start;
+}
+
+@media (max-width: 1400px) {
+  .board-columns {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
 }
 
 @media (max-width: 900px) {

@@ -13,6 +13,20 @@
   background: var(--fb-column-bg-over);
 }
 
+.column-tint-red {
+  background: var(--fb-priority-high-bg);
+  border-color: var(--fb-priority-high);
+}
+
+.column-tint-red.column-over {
+  background: var(--fb-priority-high-bg);
+  filter: brightness(0.95);
+}
+
+.column-tint-red .column-title {
+  color: var(--fb-priority-high);
+}
+
 .column-header {
   display: flex;
   align-items: center;

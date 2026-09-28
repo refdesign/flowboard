@@ -18,14 +18,7 @@ interface DragItem {
   sourceColumnId: ColumnDef['id'];
 }
 
-export function Column({
-  column,
-  cards,
-  onMoveCard,
-  onEditCard,
-  onDeleteCard,
-  onAddCard,
-}: ColumnProps) {
+export function Column({ column, cards, onMoveCard, onEditCard, onDeleteCard, onAddCard }: ColumnProps) {
   const [{ isOver }, dropRef] = useDrop<DragItem, void, { isOver: boolean }>(
     () => ({
       accept: DRAG_TYPE,
@@ -42,7 +35,7 @@ export function Column({
   return (
     <div
       ref={dropRef as unknown as React.Ref<HTMLDivElement>}
-      className={`column${isOver ? ' column-over' : ''}`}
+      className={`column${column.tint ? ` column-tint-${column.tint}` : ''}${isOver ? ' column-over' : ''}`}
     >
       <div className="column-header">
         <h2 className="column-title">{column.label}</h2>

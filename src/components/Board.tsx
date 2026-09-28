@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useBoardState } from '../hooks/useBoardState';
-import { COLUMNS } from '../types';
-import type { CardData, ColumnId } from '../types';
+import { COLUMNS, PRIORITY_ORDER } from '../types';
+import type { CardData, ColumnId, Priority } from '../types';
 import { Column } from './Column';
 import { CardModal } from './CardModal';
 import './Board.css';
@@ -14,18 +14,24 @@ export function Board() {
     open: boolean;
     card: CardData | null;
     defaultColumnId: ColumnId;
-  }>({ open: false, card: null, defaultColumnId: 'backlog' });
+    defaultPriority: Priority;
+  }>({ open: false, card: null, defaultColumnId: 'backlog', defaultPriority: 'Medium' });
 
   function openAddModal(columnId: ColumnId) {
-    setModalState({ open: true, card: null, defaultColumnId: columnId });
+    setModalState({ open: true, card: null, defaultColumnId: columnId, defaultPriority: 'Medium' });
   }
 
   function openEditModal(card: CardData) {
-    setModalState({ open: true, card, defaultColumnId: card.columnId });
+    setModalState({
+      open: true,
+      card,
+      defaultColumnId: card.columnId,
+      defaultPriority: card.priority,
+    });
   }
 
   function closeModal() {
-    setModalState({ open: false, card: null, defaultColumnId: 'backlog' });
+    setModalState({ open: false, card: null, defaultColumnId: 'backlog', defaultPriority: 'Medium' });
   }
 
   function handleSave(card: CardData) {
@@ -57,7 +63,9 @@ export function Board() {
               <Column
                 key={column.id}
                 column={column}
-                cards={cards.filter((c) => c.columnId === column.id)}
+                cards={cards
+                  .filter((c) => c.columnId === column.id)
+                  .sort((a, b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority])}
                 onMoveCard={moveCard}
                 onEditCard={openEditModal}
                 onDeleteCard={deleteCard}
@@ -71,6 +79,7 @@ export function Board() {
         <CardModal
           card={modalState.card}
           defaultColumnId={modalState.defaultColumnId}
+          defaultPriority={modalState.defaultPriority}
           onSave={handleSave}
           onDelete={handleDelete}
           onClose={closeModal}

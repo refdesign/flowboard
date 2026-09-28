@@ -11,9 +11,10 @@ interface DropdownProps {
   options: DropdownOption[];
   onChange: (value: string) => void;
   placeholder?: string;
+  label?: string;
 }
 
-export function Dropdown({ value, options, onChange, placeholder }: DropdownProps) {
+export function Dropdown({ value, options, onChange, placeholder, label }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -37,6 +38,7 @@ export function Dropdown({ value, options, onChange, placeholder }: DropdownProp
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-label={label}
       >
         <span className={selected ? 'dropdown-value' : 'dropdown-placeholder'}>
           {selected ? selected.label : placeholder}

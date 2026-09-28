@@ -6,6 +6,7 @@ import './CardModal.css';
 interface CardModalProps {
   card: CardData | null;
   defaultColumnId: ColumnId;
+  defaultPriority: Priority;
   onSave: (card: CardData) => void;
   onDelete: (id: string) => void;
   onClose: () => void;
@@ -20,7 +21,7 @@ interface FormState {
 
 const PRIORITIES: Priority[] = ['High', 'Medium', 'Low'];
 
-function toFormState(card: CardData | null): FormState {
+function toFormState(card: CardData | null, defaultPriority: Priority): FormState {
   if (card) {
     return {
       title: card.title,
@@ -29,11 +30,18 @@ function toFormState(card: CardData | null): FormState {
       dueDate: card.dueDate,
     };
   }
-  return { title: '', assignee: '', priority: 'Medium', dueDate: '' };
+  return { title: '', assignee: '', priority: defaultPriority, dueDate: '' };
 }
 
-export function CardModal({ card, defaultColumnId, onSave, onDelete, onClose }: CardModalProps) {
-  const [form, setForm] = useState<FormState>(() => toFormState(card));
+export function CardModal({
+  card,
+  defaultColumnId,
+  defaultPriority,
+  onSave,
+  onDelete,
+  onClose,
+}: CardModalProps) {
+  const [form, setForm] = useState<FormState>(() => toFormState(card, defaultPriority));
   const [error, setError] = useState('');
   const isEditing = card !== null;
 
@@ -75,14 +83,15 @@ export function CardModal({ card, defaultColumnId, onSave, onDelete, onClose }: 
               onChange={(e) => setForm({ ...form, assignee: e.target.value })}
             />
           </label>
-          <label className="modal-field">
+          <div className="modal-field">
             <span className="modal-field-label-drop">Priority</span>
             <Dropdown
               value={form.priority}
               options={PRIORITIES.map((p) => ({ value: p, label: p }))}
               onChange={(v) => setForm({ ...form, priority: v as Priority })}
+              label="Priority"
             />
-          </label>
+          </div>
           <label className="modal-field">
             <span>Due Date</span>
             <input
