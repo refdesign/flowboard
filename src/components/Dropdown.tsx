@@ -87,6 +87,7 @@ export function Dropdown({ value, options, onChange, placeholder, label }: Dropd
       case 'Escape':
         if (open) {
           e.preventDefault();
+          e.stopPropagation();
           setOpen(false);
         }
         break;

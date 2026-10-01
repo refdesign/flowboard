@@ -56,7 +56,7 @@ export function Login() {
   }
 
   return (
-    <div className="login-page">
+    <main className="login-page">
       <div className="login-card">
         <h1 className="login-title">FlowBoard</h1>
         <p className="login-subtitle">
@@ -114,6 +114,6 @@ export function Login() {
           )}
         </p>
       </div>
-    </div>
+    </main>
   );
 }

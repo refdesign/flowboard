@@ -2,12 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flowboard</title>
+    <title>FlowBoard – Simple Kanban Board for Task Management</title>
+    <meta
+      name="description"
+      content="FlowBoard is a simple kanban board for managing tasks. Drag cards across columns, set priorities, assign owners and track due dates. Free to sign up."
+    />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="%SUPABASE_URL%" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FlowBoard" />
+    <meta property="og:title" content="FlowBoard – Simple Kanban Board for Task Management" />
+    <meta
+      property="og:description"
+      content="Drag cards across columns, set priorities, assign owners and track due dates with FlowBoard."
+    />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FlowBoard – Simple Kanban Board for Task Management" />
+    <meta
+      name="twitter:description"
+      content="Drag cards across columns, set priorities, assign owners and track due dates with FlowBoard."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FlowBoard",
+        "url": "%SITE_URL%/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "A simple kanban board for managing tasks with drag-and-drop columns, priorities, assignees and due dates.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main>
+        <h1>FlowBoard – Simple Kanban Board for Task Management</h1>
+        <p>
+          FlowBoard is a kanban board for managing tasks. Drag cards between columns, set
+          priorities, assign owners and track due dates.
+        </p>
+        <noscript><p>JavaScript is required to use FlowBoard.</p></noscript>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

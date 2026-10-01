@@ -24,7 +24,7 @@
 }
 
 .column-tint-red .column-title {
-  color: var(--fb-priority-high);
+  color: var(--fb-priority-high-text);
 }
 
 .column-header {

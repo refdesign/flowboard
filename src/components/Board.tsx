@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useBoardState } from '../hooks/useBoardState';
@@ -21,12 +21,15 @@ export function Board({ userEmail, onSignOut }: BoardProps) {
     defaultColumnId: ColumnId;
     defaultPriority: Priority;
   }>({ open: false, card: null, defaultColumnId: 'backlog', defaultPriority: 'Medium' });
+  const triggerRef = useRef<HTMLElement | null>(null);
 
   function openAddModal(columnId: ColumnId) {
+    triggerRef.current = document.activeElement as HTMLElement | null;
     setModalState({ open: true, card: null, defaultColumnId: columnId, defaultPriority: 'Medium' });
   }
 
   function openEditModal(card: CardData) {
+    triggerRef.current = document.activeElement as HTMLElement | null;
     setModalState({
       open: true,
       card,
@@ -37,6 +40,7 @@ export function Board({ userEmail, onSignOut }: BoardProps) {
 
   function closeModal() {
     setModalState({ open: false, card: null, defaultColumnId: 'backlog', defaultPriority: 'Medium' });
+    triggerRef.current?.focus();
   }
 
   function handleSave(card: CardData) {
@@ -65,9 +69,16 @@ export function Board({ userEmail, onSignOut }: BoardProps) {
             </button>
           </div>
         </header>
-        {error && <p className="board-error">Couldn't sync with the server: {error}</p>}
+        <main>
+        {error && (
+          <p className="board-error" role="alert">
+            Couldn't sync with the server: {error}
+          </p>
+        )}
         {loading ? (
-          <p className="board-loading">Loading board…</p>
+          <p className="board-loading" role="status" aria-live="polite">
+            Loading board…
+          </p>
         ) : (
           <div className="board-columns">
             {COLUMNS.map((column) => (
@@ -85,6 +96,7 @@ export function Board({ userEmail, onSignOut }: BoardProps) {
             ))}
           </div>
         )}
+        </main>
       </div>
       {modalState.open && (
         <CardModal

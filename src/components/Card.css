@@ -64,17 +64,17 @@
 }
 
 .priority-badge-high {
-  color: var(--fb-priority-high);
+  color: var(--fb-priority-high-text);
   background: var(--fb-priority-high-bg);
 }
 
 .priority-badge-medium {
-  color: var(--fb-priority-medium);
+  color: var(--fb-priority-medium-text);
   background: var(--fb-priority-medium-bg);
 }
 
 .priority-badge-low {
-  color: var(--fb-priority-low);
+  color: var(--fb-priority-low-text);
   background: var(--fb-priority-low-bg);
 }
 

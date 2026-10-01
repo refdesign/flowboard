@@ -17,6 +17,11 @@
   --fb-priority-low: #16a34a;
   --fb-priority-low-bg: rgba(22, 163, 74, 0.1);
 
+  /* Darker than the base priority colors so text on top of the *-bg tint clears WCAG AA (4.5:1) */
+  --fb-priority-high-text: #b91c1c;
+  --fb-priority-medium-text: #92400e;
+  --fb-priority-low-text: #166534;
+
   font: 14px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light dark;
   color: var(--fb-text);
@@ -46,6 +51,11 @@
     --fb-priority-medium-bg: rgba(251, 191, 36, 0.15);
     --fb-priority-low: #4ade80;
     --fb-priority-low-bg: rgba(74, 222, 128, 0.15);
+
+    /* The base pastel colors already clear 4.5:1 against the dark-mode tints */
+    --fb-priority-high-text: var(--fb-priority-high);
+    --fb-priority-medium-text: var(--fb-priority-medium);
+    --fb-priority-low-text: var(--fb-priority-low);
   }
 }
 

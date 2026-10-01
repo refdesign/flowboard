@@ -54,7 +54,7 @@
 
 .board-error {
   background: var(--fb-priority-high-bg);
-  color: var(--fb-priority-high);
+  color: var(--fb-priority-high-text);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 13px;
