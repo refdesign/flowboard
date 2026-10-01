@@ -35,7 +35,7 @@ export function Column({ column, cards, onMoveCard, onEditCard, onDeleteCard, on
   return (
     <div
       ref={dropRef as unknown as React.Ref<HTMLDivElement>}
-      className={`column${column.tint ? ` column-tint-${column.tint}` : ''}${isOver ? ' column-over' : ''}`}
+      className={`column${column.tint && cards.length > 0 ? ` column-tint-${column.tint}` : ''}${isOver ? ' column-over' : ''}`}
     >
       <div className="column-header">
         <h2 className="column-title">{column.label}</h2>

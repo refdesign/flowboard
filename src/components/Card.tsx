@@ -35,29 +35,32 @@ export function Card({ card, onEdit, onDelete }: CardProps) {
     <div
       ref={dragRef as unknown as React.Ref<HTMLDivElement>}
       className={`card priority-${card.priority.toLowerCase()}${isDragging ? ' dragging' : ''}`}
-      onClick={() => onEdit(card)}
     >
-      <div className="card-header">
-        <span className={`priority-badge priority-badge-${card.priority.toLowerCase()}`}>
-          {card.priority}
+      <button
+        type="button"
+        className="card-body"
+        onClick={() => onEdit(card)}
+        aria-label={`Edit ${card.title}`}
+      >
+        <span className="card-header">
+          <span className={`priority-badge priority-badge-${card.priority.toLowerCase()}`}>
+            {card.priority}
+          </span>
         </span>
-        <button
-          type="button"
-          className="card-delete"
-          aria-label={`Delete ${card.title}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            onDelete(card.id);
-          }}
-        >
-          ×
-        </button>
-      </div>
-      <p className="card-title">{card.title}</p>
-      <div className="card-footer">
-        <span className="card-assignee">{card.assignee}</span>
-        {card.dueDate && <span className="card-due">{formatDueDate(card.dueDate)}</span>}
-      </div>
+        <span className="card-title">{card.title}</span>
+        <span className="card-footer">
+          <span className="card-assignee">{card.assignee}</span>
+          {card.dueDate && <span className="card-due">{formatDueDate(card.dueDate)}</span>}
+        </span>
+      </button>
+      <button
+        type="button"
+        className="card-delete"
+        aria-label={`Delete ${card.title}`}
+        onClick={() => onDelete(card.id)}
+      >
+        ×
+      </button>
     </div>
   );
 }
