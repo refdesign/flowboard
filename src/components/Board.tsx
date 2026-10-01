@@ -8,7 +8,12 @@ import { Column } from './Column';
 import { CardModal } from './CardModal';
 import './Board.css';
 
-export function Board() {
+interface BoardProps {
+  userEmail: string;
+  onSignOut: () => void;
+}
+
+export function Board({ userEmail, onSignOut }: BoardProps) {
   const { cards, loading, error, addCard, updateCard, deleteCard, moveCard } = useBoardState();
   const [modalState, setModalState] = useState<{
     open: boolean;
@@ -53,6 +58,12 @@ export function Board() {
       <div className="board">
         <header className="board-header">
           <h1>FlowBoard</h1>
+          <div className="board-header-account">
+            <span className="board-header-email">{userEmail}</span>
+            <button type="button" className="board-header-signout" onClick={onSignOut}>
+              Sign out
+            </button>
+          </div>
         </header>
         {error && <p className="board-error">Couldn't sync with the server: {error}</p>}
         {loading ? (

@@ -6,11 +6,45 @@
   box-sizing: border-box;
 }
 
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .board-header h1 {
-  margin: 0 0 20px;
+  margin: 0;
   font-size: 24px;
   font-weight: 700;
   color: var(--fb-text);
+}
+
+.board-header-account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.board-header-email {
+  font-size: 13px;
+  color: var(--fb-text-muted);
+}
+
+.board-header-signout {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--fb-border);
+  background: transparent;
+  color: var(--fb-text);
+  cursor: pointer;
+}
+
+.board-header-signout:hover {
+  background: var(--fb-count-bg);
 }
 
 .board-loading {

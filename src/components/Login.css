@@ -1,0 +1,101 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: var(--fb-card-bg);
+  border: 1px solid var(--fb-border);
+  border-radius: 10px;
+  padding: 32px 28px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.login-title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fb-text);
+  text-align: center;
+}
+
+.login-subtitle {
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: var(--fb-text-muted);
+  text-align: center;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fb-text-muted);
+}
+
+.login-field input {
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--fb-border);
+  background: var(--fb-input-bg);
+  color: var(--fb-text);
+}
+
+.login-message {
+  font-size: 12px;
+  margin: -6px 0 12px;
+}
+
+.login-message-error {
+  color: var(--fb-priority-high);
+}
+
+.login-message-info {
+  color: var(--fb-priority-low);
+}
+
+.login-submit {
+  width: 100%;
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 16px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: none;
+  background: var(--fb-accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.login-switch {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--fb-text-muted);
+  text-align: center;
+}
+
+.login-switch button {
+  font: inherit;
+  font-weight: 600;
+  color: var(--fb-accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
